@@ -588,16 +588,24 @@ function get_data_from_json() {
       // HLS want to display the caurousel that I am testing with, this is temporary
       //   $('.carousel').carousel();
 
-      $('.datepicker').datepicker();
-        // val dpicker = $('.datepicker');
-        // dpicker.datepicker();
-        // this.instanceDatepicker = new M.Datepicker(this.elDatepicker.nativeElement, {
-        //     defaultDate: new Date(),
-        //     setDefaultDate: true,
-        //     selectMonths: true,
-        //     selectYears: 200, 
-        //     format: "dd/mm/yyyy"
-        // });
+        //  Set datepicker to start at a date === today
+        var formatForToday = "ll";
+        var thisDay = moment().format(formatForToday);
+        var beginDateInput = $("#event-start");
+        beginDateInput.attr("value", thisDay);
+        // Set event datepicker == today
+        var eventDateInput = $("#inputDate");
+        eventDateInput.attr("value", thisDay);
+        // Set datepicker end date be 2 weeks out from today
+        var b = moment().add(2, 'week'); 
+        b = b.format(formatForToday);
+        var endDateInput = $("#event-end");
+        endDateInput.attr("value", b);
+        // lets make sure you can't select a date before today
+        $('.datepicker').datepicker({
+            autoClose : true,
+            minDate : new Date()
+        });
 
         $(document).on("click.", "#addToCal", function(event){
 
