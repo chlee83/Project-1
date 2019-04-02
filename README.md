@@ -12,3 +12,5 @@ Local events can be added to the calendar as well.
 In additional, **Event-uality** has been personalized.
 Anyone can create a log in using their email and creating a password.
 Once your information is in the system, you can just sign in to see all your saved events.
+
+[Event-tuality](https://chlee83.github.io/Project-1/)
